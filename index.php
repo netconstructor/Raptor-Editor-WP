@@ -10,25 +10,44 @@ Author URI: http://panmedia.co.nz/
 
 define('RAPTOR_AJAX_ROOT', plugins_url('save.php', __FILE__));
 
-add_filter('wp', 'raptor_enable');
+
+add_filter('wp_print_scripts', 'raptor_enable');
 add_filter('the_content', 'raptor_enclose_post_content');
-add_filter('wp_print_scripts', 'raptor_comments');
+
+/**
+ * @return boolean True if the user can edit any currently visible posts
+ */
+function user_can_edit_visible_posts() {
+    // @todo check if the logged in user can edit any currently visible posts
+    return is_user_logged_in();
+}
+
+/**
+ * @return boolean True if the visitor is able to comment on current page
+ */
+function user_can_comment() {
+    // @todo check if comments are enabled on this page & if so whether current visitor is elegible to comment
+    return is_single();
+}
 
 /**
  * Insert Raptor Editor JavaScript
  */
 function raptor_enable() {
-    // if(is_user_logged_in()){
-    //     wp_enqueue_script('jquery-raptor', plugins_url('javascript/jquery-raptor.js', __FILE__), '1.0.0', true);
-    //     wp_enqueue_script('jquery-raptor-init', plugins_url('javascript/jquery-raptor-init.js.php', __FILE__), array(), '1.0.0', true);
-    // }
-}
-
-function raptor_comments() {
-    if (is_single()) {
-        wp_enqueue_script('jquery-raptor', plugins_url('raptor/javascript/jquery-raptor.js'), '1.0.0', true);
-        wp_enqueue_script('jquery-raptor-comments-init', plugins_url('raptor/javascript/jquery-raptor-comments-init.js'), array(), '1.0.0', true);
+    $enableEditor = user_can_edit_visible_posts() || user_can_comment();
+    if (!$enableEditor) {
+        return;
     }
+
+    wp_enqueue_script('jquery-raptor', plugins_url('raptor/javascript/jquery-raptor.js'), false, '1.0.0', true);
+
+    // Enable comments on single pages
+    if (is_single()) {
+        wp_enqueue_script('jquery-raptor-comments', plugins_url('raptor/javascript/jquery-raptor-comments-init.js'), false, '1.0.0', true);
+    }
+
+    // Enable editor on posts relevant to current user
+
 }
 
 /**
