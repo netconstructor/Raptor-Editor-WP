@@ -1,12 +1,12 @@
-<?php 
+<?php
 /*
-Plugin Name: jQuery Raptor
-Plugin URI: http://jqueryui-raptor.com/
+Plugin Name: Raptor Editor
+Plugin URI: http://raptor-editor.com/wordpress/
 Description: The only WYSIWYG editor worth your time.
 Version: 1.0
 Author: PANmedia
 Author URI: http://panmedia.co.nz/
-*/  
+*/
 
 define('RAPTOR_AJAX_ROOT', plugins_url('save.php', __FILE__));
 
@@ -14,7 +14,7 @@ add_filter('wp', 'raptor_enable');
 add_filter('the_content', 'raptor_enclose_post_content');
 
 /**
- * Insert jQuery Raptor JavaScript
+ * Insert Raptor Editor JavaScript
  */
 function raptor_enable() {
     if(is_user_logged_in()){
