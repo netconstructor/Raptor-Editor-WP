@@ -15,15 +15,7 @@ class Raptor {
             wp_enqueue_script('jquery-ui-dialog');
             wp_enqueue_script('jquery-ui-position');
 
-            // Inject save object
-            wp_enqueue_script('raptor-save-function', plugins_url('raptor/javascript/raptor-save-function.js'), 'jquery-ui', '0.0.3', true);
-            wp_localize_script('raptor-save-function', 'raptorSave',
-                array(
-                    'ajaxUrl' => admin_url('admin-ajax.php'),
-                    'myajax_nonce' => wp_create_nonce('myajax_nonce_val'),
-                    'action' => 'raptor-save'
-                ));
-            wp_enqueue_script('raptor', plugins_url('raptor/javascript/raptor.js'), 'raptor-save-function', '0.0.3', true);
+            wp_enqueue_script('raptor', plugins_url('raptor/javascript/raptor.js'), 'jquery-ui', '0.0.3', true);
 
             // Theme
             wp_register_style('jquery-ui-smoothness', "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css", false, '1.8.16');
@@ -48,11 +40,23 @@ class Raptor {
     public function addInPlacePostJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-in-place-init', plugins_url('raptor/javascript/raptor-in-place-init.js'), false, '1.0.0', true);
+        wp_localize_script('raptor-in-place-init', 'raptorInPlaceSave',
+                array(
+                    'url' => admin_url('admin-ajax.php'),
+                    'nonce' => wp_create_nonce('myajax_nonce_val'),
+                    'action' => RaptorSave::SAVE_POSTS,
+                ));
     }
 
     public function addCommentsJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-comments', plugins_url('raptor/javascript/raptor-comments-init.js'), false, '1.0.0', true);
+        wp_localize_script('raptor-comments', 'raptorCommentsSave',
+                array(
+                    'url' => admin_url('admin-ajax.php'),
+                    'nonce' => wp_create_nonce('myajax_nonce_val'),
+                    'action' => RaptorSave::SAVE_COMMENTS,
+                ));
     }
 
     /**

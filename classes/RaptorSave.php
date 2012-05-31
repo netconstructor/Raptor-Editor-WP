@@ -1,6 +1,9 @@
 <?php
 class RaptorSave {
 
+    const SAVE_POSTS = 'save-posts';
+    const SAVE_COMMENTS = 'save-comments';
+
     public function savePosts() {
         var_dump($_POST);
 
