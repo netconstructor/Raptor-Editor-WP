@@ -15,18 +15,14 @@ class Raptor {
             wp_enqueue_script('jquery-ui-dialog');
             wp_enqueue_script('jquery-ui-position');
 
-            // Inject save URL
-            define('RAPTOR_SAVE_URL', plugins_url('ajax/save.php'));
+            // Inject save object
             wp_enqueue_script('raptor-save-function', plugins_url('raptor/javascript/raptor-save-function.js'), 'jquery-ui', '0.0.3', true);
-            wp_localize_script(
-                'raptor-save-function',
-                'raptorSave',
+            wp_localize_script('raptor-save-function', 'raptorSave',
                 array(
                     'ajaxUrl' => admin_url('admin-ajax.php'),
                     'myajax_nonce' => wp_create_nonce('myajax_nonce_val'),
                     'action' => 'raptor-save'
-                )
-            );
+                ));
             wp_enqueue_script('raptor', plugins_url('raptor/javascript/raptor.js'), 'raptor-save-function', '0.0.3', true);
 
             // Theme
