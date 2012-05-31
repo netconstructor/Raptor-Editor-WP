@@ -1,5 +1,5 @@
 (function($) {
-    $('.entry-content').editor({
+    $('.raptor-editable-post').editor({
         uiOrder: [
             ['save', 'cancel'],
             ['showGuides'],
@@ -56,4 +56,4 @@
             }
         }
     });
-})($);
+})(jQuery);
