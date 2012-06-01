@@ -11,6 +11,7 @@ Author URI: http://pagesofinterest.net/, http://panmedia.co.nz/
 include __DIR__.'/classes/Raptor.php';
 include __DIR__.'/classes/RaptorStates.php';
 include __DIR__.'/classes/RaptorSave.php';
+include __DIR__.'/classes/RaptorAdmin.php';
 include __DIR__.'/classes/RaptorInitialiser.php';
 
 $raptor = new RaptorInitialiser();

@@ -32,9 +32,9 @@ class Raptor {
         wp_enqueue_script('raptor-admin-init', plugins_url('raptor/javascript/raptor-admin-init.js'), false, '1.0.0', true);
     }
 
-    public function addAdminQuickPostJs() {
+    public function addAdminQuickPressJs() {
         $this->addRaptor();
-        wp_enqueue_script('raptor-admin-quick-postinit', plugins_url('raptor/javascript/raptor-admin-quick-post-init.js'), false, '1.0.0', true);
+        wp_enqueue_script('raptor-admin-quick-post-init', plugins_url('raptor/javascript/raptor-admin-quick-post-init.js'), false, '1.0.0', true);
     }
 
     public function addInPlacePostJs() {
@@ -43,7 +43,7 @@ class Raptor {
         wp_localize_script('raptor-in-place-init', 'raptorInPlaceSave',
                 array(
                     'url' => admin_url('admin-ajax.php'),
-                    'nonce' => wp_create_nonce('myajax_nonce_val'),
+                    'nonce' => wp_create_nonce(RaptorSave::SAVE_POSTS_NONCE),
                     'action' => RaptorSave::SAVE_POSTS,
                 ));
     }
@@ -75,7 +75,7 @@ class Raptor {
     public function encloseEditablePosts($content) {
         global $post;
 
-        if(current_user_can('edit_post', $post->ID)){
+        if(current_user_can('edit_post', $post->ID)) {
             $content = "<div class='raptor-editable-post' data-post_id='{$post->ID}'>{$content}</div>";
         }
 

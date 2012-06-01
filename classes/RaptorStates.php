@@ -1,7 +1,7 @@
 <?php
 class RaptorStates {
 
-    public static function adminEditingPostOnBackend() {
+    public static function admin() {
         return is_admin();
     }
 
