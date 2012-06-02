@@ -8,3 +8,7 @@
     border: none;
     border-bottom: 1px solid #ccc;
 }
+
+.ui-editor-link-content {
+    display: inline-block!important;
+}
