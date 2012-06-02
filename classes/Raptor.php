@@ -30,11 +30,16 @@ class Raptor {
     public function addAdminPostJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-admin-init', plugins_url('raptor/javascript/raptor-admin-init.js'), false, '1.0.0', true);
+        wp_register_style('raptor-admin-css', plugins_url('raptor/css/raptor-admin.css'), false, '1.0.0');
+        wp_enqueue_style('raptor-admin-css');
     }
 
     public function addAdminQuickPressJs() {
         $this->addRaptor();
-        wp_enqueue_script('raptor-admin-quick-post-init', plugins_url('raptor/javascript/raptor-admin-quick-post-init.js'), false, '1.0.0', true);
+
+        wp_enqueue_script('raptor-admin-quickpress-init', plugins_url('raptor/javascript/raptor-quickpress-init.js'), false, '1.0.0', true);
+        wp_register_style('raptor-quickpress-css', plugins_url('raptor/css/raptor-quickpress.css'), false, '1.0.0');
+        wp_enqueue_style('raptor-quickpress-css');
     }
 
     public function addInPlacePostJs() {

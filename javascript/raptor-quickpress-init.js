@@ -8,8 +8,7 @@
             ['textBold', 'textItalic', 'textUnderline', 'textStrike'],
             ['quoteBlock'],
             ['fontSizeInc', 'fontSizeDec'],
-            ['link', 'unlink'],
-            ['tagMenu']
+            ['link', 'unlink']
         ],
         enableUi: false,
         disabledPlugins: [
@@ -31,13 +30,16 @@
             undo: true,
             redo: true,
             link: true,
-            unlink: true,
-            tagMenu: true
+            unlink: true
         },
         plugins: {
+            unsavedEditWarning: false,
             dock: {
                 docked: true,
                 dockToElement: true
+            },
+            placeholder: {
+                content: ''
             }
         }
     });

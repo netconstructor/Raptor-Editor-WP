@@ -21,10 +21,10 @@ class RaptorInitialiser {
             if (RaptorAdmin::raptorizeQuickpress() || RaptorAdmin::raptorizeAdminEditing()){
                 add_action('admin_print_scripts', array(&$this->raptor, 'removeNativeEditors'));
                 if (RaptorAdmin::raptorizeQuickpress()) {
-                    add_action('admin_print_scripts', array(&$this->raptor, 'addAdminPostJs'));
+                    add_action('admin_print_scripts', array(&$this->raptor, 'addAdminQuickPressJs'));
                 }
                 if (RaptorAdmin::raptorizeAdminEditing()) {
-                    add_action('admin_print_scripts', array(&$this->raptor, 'addAdminQuickPressJs'));
+                    add_action('admin_print_scripts', array(&$this->raptor, 'addAdminPostJs'));
                 }
             }
         }

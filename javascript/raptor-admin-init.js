@@ -1,5 +1,5 @@
 (function($) {
-    $('#content').editor({
+    $('#post-body #content').editor({
         replace: true,
         autoEnable: true,
         uiOrder: [
@@ -15,7 +15,7 @@
             ['link', 'unlink'],
             ['insertFile'],
             ['floatLeft', 'floatNone', 'floatRight'],
-            ['tag-menu']
+            ['tagMenu']
         ],
         enableUi: false,
         disabledPlugins: [
@@ -48,6 +48,7 @@
             tagMenu: true
         },
         plugins: {
+            unsavedEditWarning: false,
             dock: {
                 docked: true,
                 dockToElement: true

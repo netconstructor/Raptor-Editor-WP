@@ -12,7 +12,7 @@ class RaptorAdmin {
     public static $options = null;
 
     public function setupMenu() {
-        add_options_page('Raptor', 'Raptor', 1, 'Raptor', array(&$this, 'adminIndex'));
+        add_options_page('Raptor', 'Raptor Editor', 1, 'Raptor', array(&$this, 'adminIndex'));
     }
 
     public function registerSettings() {
