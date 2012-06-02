@@ -10,6 +10,9 @@ class RaptorInitialiser {
     }
 
     public function initialise() {
+
+        $this->raptor = new Raptor();
+
         if(RaptorStates::admin()){
             // Admin page
             $this->admin = new RaptorAdmin();
@@ -17,7 +20,6 @@ class RaptorInitialiser {
             add_action('admin_init', array(&$this->admin, 'registerSettings'));
 
             // Post editing
-            $this->raptor = new Raptor();
             if (RaptorAdmin::raptorizeQuickpress() || RaptorAdmin::raptorizeAdminEditing()){
                 add_action('admin_print_scripts', array(&$this->raptor, 'removeNativeEditors'));
                 if (RaptorAdmin::raptorizeQuickpress()) {

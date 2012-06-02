@@ -12,6 +12,7 @@
             ['listUnordered', 'listOrdered'],
             ['hr', 'quoteBlock'],
             ['fontSizeInc', 'fontSizeDec'],
+            ['wordpressMediaLibrary'],
             ['link', 'unlink'],
             ['insertFile'],
             ['floatLeft', 'floatNone', 'floatRight'],
@@ -22,6 +23,7 @@
             'unsavedEditWarning'
         ],
         ui: {
+            viewSource: true,
             textBold: true,
             textItalic: true,
             textUnderline: true,
@@ -45,7 +47,8 @@
             unlink: true,
             listUnordered: true,
             listOrdered: true,
-            tagMenu: true
+            tagMenu: true,
+            wordpressMediaLibrary: true
         },
         plugins: {
             unsavedEditWarning: false,

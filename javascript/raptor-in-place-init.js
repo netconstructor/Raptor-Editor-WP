@@ -2,6 +2,7 @@
     $('.raptor-editable-post').editor({
         uiOrder: [
             ['save', 'cancel'],
+            ['dock'],
             ['showGuides'],
             ['viewSource'],
             ['undo', 'redo'],
@@ -11,16 +12,18 @@
             ['listUnordered', 'listOrdered'],
             ['hr', 'quoteBlock'],
             ['fontSizeInc', 'fontSizeDec'],
+            ['wordpressMediaLibrary'],
             ['link', 'unlink'],
             ['insertFile'],
             ['floatLeft', 'floatNone', 'floatRight'],
             ['tag-menu']
         ],
         enableUi: false,
-        disabledPlugins: [
-            'unsavedEditsWarning'
-        ],
         ui: {
+            wordpressMediaLibrary: true,
+            showGuides: true,
+            dock: true,
+            viewSource: true,
             textBold: true,
             textItalic: true,
             textUnderline: true,
@@ -49,7 +52,6 @@
             cancel: true
         },
         plugins: {
-            unsavedEditsWarning: false,
             dock: {
                 docked: true,
                 dockUnder: '#wpadminbar'

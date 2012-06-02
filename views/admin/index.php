@@ -2,7 +2,7 @@
     <div class="raptor-settings-form">
         <h2>WP Raptor Options</h2>
 
-        <form method="post" action="">
+        <form method="post" action="" autocomplete="off">
 
             <?php $this->saveOptions(); ?>
             <?php settings_fields(self::RAPTOR_SETTINGS); ?>
