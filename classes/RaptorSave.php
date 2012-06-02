@@ -37,10 +37,6 @@ class RaptorSave {
         }
     }
 
-    public function saveComments(array $posts) {
-
-    }
-
     public function verifyNonce() {
         if (!isset($_POST['nonce'])) {
             return false;

@@ -1,14 +1,30 @@
 <?php
 
+/**
+ * @class Handles bootstrapping basic actions
+ */
 class RaptorInitialiser {
 
+    /**
+     * @var Raptor The raptor object handles inclusion of raptor editor scripts
+     */
     public $raptor = null;
+
+    /**
+     * @var RaptorSave The raptor save object handles post saving
+     */
     public $save = null;
 
+    /**
+     * Add plugins_loaded action
+     */
     public function __construct() {
         add_action('plugins_loaded', array(&$this, 'initialise'));
     }
 
+    /**
+     * Add admin actions if applicable, otherwise add in place editing actions
+     */
     public function initialise() {
 
         $this->raptor = new Raptor();
