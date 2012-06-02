@@ -6,6 +6,7 @@ Description: Edit your content in style with Raptor Editor, this generation's WY
 Version: 1.0
 Author: Michael Robinson, PANmedia
 Author URI: http://pagesofinterest.net/, http://panmedia.co.nz/
+License: http://www.gnu.org/licenses/gpl.html
 */
 
 include __DIR__.'/classes/Raptor.php';

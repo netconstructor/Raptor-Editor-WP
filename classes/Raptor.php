@@ -15,22 +15,22 @@ class Raptor {
             wp_enqueue_script('jquery-ui-dialog');
             wp_enqueue_script('jquery-ui-position');
 
-            wp_enqueue_script('raptor', plugins_url('raptor/javascript/raptor.js'), 'jquery-ui', '0.0.3', true);
+            wp_enqueue_script('raptor', plugins_url('javascript/raptor.js', dirname(__FILE__)), 'jquery-ui', '0.0.3', true);
 
             // Extra plugins
-            wp_register_style('raptor-wordpress-media-library-css', plugins_url('raptor/javascript/plugins/wordpress-media-library/wordpress-media-library.css'), false, '1.0.0');
+            wp_register_style('raptor-wordpress-media-library-css', plugins_url('javascript/plugins/wordpress-media-library/wordpress-media-library.css', dirname(__FILE__)), false, '1.0.0');
             wp_enqueue_style('raptor-wordpress-media-library-css');
-            wp_enqueue_script('raptor-wordpress-media-library', plugins_url('raptor/javascript/plugins/wordpress-media-library/wordpress-media-library.js'), 'raptor', '1.0.0', true);
+            wp_enqueue_script('raptor-wordpress-media-library', plugins_url('javascript/plugins/wordpress-media-library/wordpress-media-library.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
             wp_localize_script('raptor-wordpress-media-library', 'raptorMediaLibrary',
                 array(
                     'url' => admin_url('media-upload.php'),
                 ));
 
             // Theme
-            wp_register_style('jquery-ui-smoothness', "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css", false, '1.8.16');
+            wp_register_style('jquery-ui-smoothness', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css', false, '1.8.16');
             wp_enqueue_style('jquery-ui-smoothness');
 
-            wp_register_style('jquery-raptor-theme', plugins_url('raptor/css/raptor-theme.css'), false, '0.0.3');
+            wp_register_style('jquery-raptor-theme', plugins_url('css/raptor-theme.css', dirname(__FILE__)), false, '0.0.3');
             wp_enqueue_style('jquery-raptor-theme');
         }
         $this->raptorQueued = true;
@@ -38,22 +38,22 @@ class Raptor {
 
     public function addAdminPostJs() {
         $this->addRaptor();
-        wp_enqueue_script('raptor-admin-init', plugins_url('raptor/javascript/raptor-admin-init.js'), 'raptor', '1.0.0', true);
-        wp_register_style('raptor-admin-css', plugins_url('raptor/css/raptor-admin.css'), false, '1.0.0');
+        wp_enqueue_script('raptor-admin-init', plugins_url('javascript/raptor-admin-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
+        wp_register_style('raptor-admin-css', plugins_url('css/raptor-admin.css', dirname(__FILE__)), false, '1.0.0');
         wp_enqueue_style('raptor-admin-css');
     }
 
     public function addAdminQuickPressJs() {
         $this->addRaptor();
 
-        wp_enqueue_script('raptor-admin-quickpress-init', plugins_url('raptor/javascript/raptor-quickpress-init.js'), 'raptor', '1.0.0', true);
-        wp_register_style('raptor-quickpress-css', plugins_url('raptor/css/raptor-quickpress.css'), false, '1.0.0');
+        wp_enqueue_script('raptor-admin-quickpress-init', plugins_url('javascript/raptor-quickpress-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
+        wp_register_style('raptor-quickpress-css', plugins_url('css/raptor-quickpress.css', dirname(__FILE__)), false, '1.0.0');
         wp_enqueue_style('raptor-quickpress-css');
     }
 
     public function addInPlacePostJs() {
         $this->addRaptor();
-        wp_enqueue_script('raptor-in-place-init', plugins_url('raptor/javascript/raptor-in-place-init.js'), 'raptor', '1.0.0', true);
+        wp_enqueue_script('raptor-in-place-init', plugins_url('javascript/raptor-in-place-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
         wp_localize_script('raptor-in-place-init', 'raptorInPlaceSave',
                 array(
                     'url' => admin_url('admin-ajax.php'),
@@ -61,13 +61,13 @@ class Raptor {
                     'action' => RaptorSave::SAVE_POSTS,
                 ));
 
-        wp_register_style('raptor-in-place-css', plugins_url('raptor/css/raptor-in-place.css'), false, '1.0.0');
+        wp_register_style('raptor-in-place-css', plugins_url('css/raptor-in-place.css', dirname(__FILE__)), false, '1.0.0');
         wp_enqueue_style('raptor-in-place-css');
     }
 
     public function addCommentsJs() {
         $this->addRaptor();
-        wp_enqueue_script('raptor-comments', plugins_url('raptor/javascript/raptor-comments-init.js'), false, '1.0.0', true);
+        wp_enqueue_script('raptor-comments', plugins_url('javascript/raptor-comments-init.js', dirname(__FILE__)), false, '1.0.0', true);
         wp_localize_script('raptor-comments', 'raptorCommentsSave',
                 array(
                     'url' => admin_url('admin-ajax.php'),
