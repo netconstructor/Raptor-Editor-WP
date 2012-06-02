@@ -2,7 +2,7 @@
 /*
 Plugin Name: Raptor Editor
 Plugin URI: http://raptor-editor.com/wordpress/
-Description: The only WYSIWYG editor worth your time.
+Description: Edit your content in style with Raptor Editor, this generation's WYSIWYG editor.
 Version: 1.0
 Author: Michael Robinson, PANmedia
 Author URI: http://pagesofinterest.net/, http://panmedia.co.nz/

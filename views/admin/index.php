@@ -43,10 +43,36 @@
     </div>
 
     <div class="raptor-settings-information">
-        <h2>WP Raptor Editor</h2>
+        <h2>WP Raptor</h2>
         <p>
-            This plugin was built with <a href="http://raptor-editor.com/">Raptor Editor</a>, this generation's WYSIWYG editor.
+            Plugin created by <a target="_blank" href="http://pagesofinterest.net/?utm_source=wp-raptor&utm_medium=admin-index&utm_content=michael-robinson&utm_campaign=wp-raptor" title="Michael Robinson!">Michael Robinson</a>.
+        </p>
+        <p>
+            WP Raptor was built with <a target="_blank" href="http://raptor-editor.com/?utm_source=wp-raptor&utm_medium=admin-index&utm_content=raptor-editor&utm_campaign=wp-raptor">Raptor Editor</a>, this generation's WYSIWYG editor.
+            <br/>
+            Raptor Editor in turn was built by the wonderful team at <a target="_blank" href="http://www.panmedia.co.nz/?utm_source=wp-raptor&utm_medium=admin-index&utm_content=panmedia&utm_campaign=wp-raptor">PANmedia</a>.
+            <br/>
+            <br/>
+            Thanks PAN!
         </p>
     </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

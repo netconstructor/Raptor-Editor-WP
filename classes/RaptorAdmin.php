@@ -20,7 +20,7 @@ class RaptorAdmin {
     }
 
     public function adminIndex() {
-        wp_register_style('raptor-admin-styles', plugins_url('raptor/css/admin.css'), false, '0.0.3');
+        wp_register_style('raptor-admin-styles', plugins_url('raptor/css/admin/style.css'), false, '0.0.3');
         wp_enqueue_style('raptor-admin-styles');
 
         $options = self::getOptions();
