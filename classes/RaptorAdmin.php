@@ -24,7 +24,7 @@ class RaptorAdmin {
         wp_enqueue_style('raptor-admin-styles');
 
         $options = self::getOptions();
-        include __DIR__.'/../views/admin/index.php';
+        include RAPTOR_ROOT.'/views/admin/index.php';
     }
 
     public function saveOptions() {

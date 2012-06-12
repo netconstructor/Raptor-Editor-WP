@@ -25,15 +25,18 @@ class RaptorInitialiser {
     /**
      * Add admin actions if applicable, otherwise add in place editing actions
      */
-    public function initialise() {
+    public function initialise($pluginName) {
 
         $this->raptor = new Raptor();
 
         if(RaptorStates::admin()){
+
             // Admin page
             $this->admin = new RaptorAdmin();
             add_action('admin_menu', array(&$this->admin, 'setupMenu'));
             add_action('admin_init', array(&$this->admin, 'registerSettings'));
+
+            // add_filter('plugin_action_links_wp-raptor', array(&$this->admin, 'pluginLinks') );
 
             // Post editing
             if (RaptorAdmin::raptorizeQuickpress() || RaptorAdmin::raptorizeAdminEditing()){

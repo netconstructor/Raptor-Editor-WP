@@ -1,18 +1,20 @@
 <?php
 /*
 Plugin Name: Raptor Editor
-Plugin URI: http://raptor-editor.com/wordpress/
+Plugin URI: http://pagesofinterest.net/projects/wp-raptor/
 Description: Edit your content in style with Raptor Editor, this generation's WYSIWYG editor.
-Version: 1.0
-Author: Michael Robinson, PANmedia
-Author URI: http://pagesofinterest.net/, http://panmedia.co.nz/
+Version: 1.0.6
+Author: Michael Robinson
+Author URI: http://pagesofinterest.net/
 License: http://www.gnu.org/licenses/gpl.html
 */
 
-include __DIR__.'/classes/Raptor.php';
-include __DIR__.'/classes/RaptorStates.php';
-include __DIR__.'/classes/RaptorSave.php';
-include __DIR__.'/classes/RaptorAdmin.php';
-include __DIR__.'/classes/RaptorInitialiser.php';
+define('RAPTOR_ROOT', dirname(__FILE__));
+
+include RAPTOR_ROOT.'/classes/Raptor.php';
+include RAPTOR_ROOT.'/classes/RaptorStates.php';
+include RAPTOR_ROOT.'/classes/RaptorSave.php';
+include RAPTOR_ROOT.'/classes/RaptorAdmin.php';
+include RAPTOR_ROOT.'/classes/RaptorInitialiser.php';
 
 $raptor = new RaptorInitialiser();
