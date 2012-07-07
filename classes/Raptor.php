@@ -3,6 +3,11 @@
 class Raptor {
 
     public $raptorQueued = false;
+    public $options = null;
+
+    public function __construct($options) {
+        $this->options = $options;
+    }
 
     public function addRaptor() {
         if (!$this->raptorQueued) {
@@ -39,6 +44,10 @@ class Raptor {
     public function addAdminPostJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-admin-init', plugins_url('javascript/raptor-admin-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
+        wp_localize_script('raptor-admin-init', 'raptorAdmin',
+                array(
+                    'allowOversizeImages' => $this->options->resizeImagesAutomatically()
+                ));
         wp_register_style('raptor-admin-css', plugins_url('css/raptor-admin.css', dirname(__FILE__)), false, '1.0.0');
         wp_enqueue_style('raptor-admin-css');
     }
@@ -47,6 +56,11 @@ class Raptor {
         $this->addRaptor();
 
         wp_enqueue_script('raptor-admin-quickpress-init', plugins_url('javascript/raptor-quickpress-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
+        wp_enqueue_script('raptor-admin-quickpress-init', plugins_url('javascript/raptor-in-place-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
+        wp_localize_script('raptor-admin-quickpress-init', 'raptorQuickpress',
+                array(
+                    'allowOversizeImages' => $this->options->resizeImagesAutomatically()
+                ));
         wp_register_style('raptor-quickpress-css', plugins_url('css/raptor-quickpress.css', dirname(__FILE__)), false, '1.0.0');
         wp_enqueue_style('raptor-quickpress-css');
     }
@@ -54,11 +68,12 @@ class Raptor {
     public function addInPlacePostJs() {
         $this->addRaptor();
         wp_enqueue_script('raptor-in-place-init', plugins_url('javascript/raptor-in-place-init.js', dirname(__FILE__)), 'raptor', '1.0.0', true);
-        wp_localize_script('raptor-in-place-init', 'raptorInPlaceSave',
+        wp_localize_script('raptor-in-place-init', 'raptorInPlace',
                 array(
                     'url' => admin_url('admin-ajax.php'),
                     'nonce' => wp_create_nonce(RaptorSave::SAVE_POSTS_NONCE),
                     'action' => RaptorSave::SAVE_POSTS,
+                    'allowOversizeImages' => $this->options->resizeImagesAutomatically()
                 ));
 
         wp_register_style('raptor-in-place-css', plugins_url('css/raptor-in-place.css', dirname(__FILE__)), false, '1.0.0');
