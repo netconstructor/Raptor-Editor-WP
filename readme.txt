@@ -31,6 +31,12 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 
 == Changelog ==
 
+= 1.0.10 =
+* Fixed "Not able to open any bars on dashboard" bug, thanks to popwireless for reporting this (http://wordpress.org/support/topic/plugin-raptor-editor-not-able-to-open-any-bars-on-dashboard).
+* Updated Raptor Editor to version 0.0.8b.
+* Minor styling fixes.
+* Enabled tag-change menu.
+
 = 1.0.9 =
 * Removed some debug statements from the edit in place JavaScript
 
