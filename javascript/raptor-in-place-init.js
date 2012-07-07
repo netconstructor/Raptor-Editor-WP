@@ -61,20 +61,23 @@
                 id: {
                     attr: 'data-post_id'
                 },
-                postName: raptorInPlaceSave.action,
+                postName: raptorInPlace.action,
                 ajax: {
-                    url: raptorInPlaceSave.url,
+                    url: raptorInPlace.url,
                     type: 'post',
                     cache: false,
                     data: function(id, contentData) {
                         var data = {
-                            action: raptorInPlaceSave.action,
+                            action: raptorInPlace.action,
                             posts: contentData,
-                            nonce: raptorInPlaceSave.nonce
+                            nonce: raptorInPlace.nonce
                         };
                         return data;
                     }
                 }
+            },
+            imageResize: {
+                allowOversizeImages: raptorInPlace.allowOversizeImages
             }
         }
     });

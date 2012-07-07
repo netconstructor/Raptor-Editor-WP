@@ -55,6 +55,9 @@
             dock: {
                 docked: true,
                 dockToElement: true
+            },
+            imageResize: {
+                allowOversizeImages: raptorAdmin.allowOversizeImages
             }
         }
     });

@@ -40,6 +40,9 @@
             },
             placeholder: {
                 content: ''
+            },
+            imageResize: {
+                allowOversizeImages: raptorQuickpress.allowOversizeImages
             }
         }
     });
