@@ -4,7 +4,7 @@ Donate link: N/A
 Tags: content editing, media library
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.0.7
+Stable tag: 1.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,10 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 
 == Changelog ==
 
-= 1.0.7 =
+= 1.0.9 =
+* Removed some debug statements from the edit in place JavaScript
+
+= 1.0.8 =
 * Updated admin page styling
 * Fixed issue with __DIR__ in PHP versions < 5.3
 

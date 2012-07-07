@@ -63,17 +63,15 @@
                 },
                 postName: raptorInPlaceSave.action,
                 ajax: {
-                    url: raptorInPlaceSave.url,// + '?action=' + raptorInPlaceSave.postName,
+                    url: raptorInPlaceSave.url,
                     type: 'post',
                     cache: false,
                     data: function(id, contentData) {
-                        console.log(arguments);
                         var data = {
                             action: raptorInPlaceSave.action,
                             posts: contentData,
                             nonce: raptorInPlaceSave.nonce
                         };
-                        console.log(data);
                         return data;
                     }
                 }

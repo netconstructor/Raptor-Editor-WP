@@ -25,7 +25,7 @@ class RaptorInitialiser {
     /**
      * Add admin actions if applicable, otherwise add in place editing actions
      */
-    public function initialise($pluginName) {
+    public function initialise() {
 
         $this->raptor = new Raptor();
 
