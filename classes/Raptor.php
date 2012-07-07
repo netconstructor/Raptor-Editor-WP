@@ -81,7 +81,6 @@ class Raptor {
      */
     public function removeNativeEditors() {
         wp_deregister_script('tiny_mce');
-        // wp_deregister_script('quicktags');
     }
 
     /**
