@@ -16,7 +16,7 @@
             ['link', 'unlink'],
             ['insertFile'],
             ['floatLeft', 'floatNone', 'floatRight'],
-            ['tag-menu']
+            ['tagMenu']
         ],
         enableUi: false,
         ui: {
