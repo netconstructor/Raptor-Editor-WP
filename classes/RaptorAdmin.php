@@ -1,64 +1,31 @@
 <?php
+ini_set('display_errors', true);
 class RaptorAdmin {
 
-    const RAPTOR_SETTINGS = 'raptor-settings';
-    const RAPTOR_USAGE_AREAS = 'raptor-usage-areas';
-    const RAPTOR_SETTINGS_INDEX = 'raptor-settings-index';
+    public $options = null;
 
-    const INDEX_ALLOW_IN_PLACE_EDITING = 'index-allow-in-place-editing';
-    const INDEX_RAPTORIZE_QUICKPRESS = 'index-raptorize-quickpress';
-    const INDEX_RAPTORIZE_ADMIN_EDITING = 'index-raptorize-admin-editing';
-
-    public static $options = null;
+    public function __construct($options) {
+        $this->options = $options;
+    }
 
     public function setupMenu() {
         add_options_page('Raptor', 'Raptor Editor', 1, 'Raptor', array(&$this, 'adminIndex'));
     }
 
-    public function registerSettings() {
-        register_setting(self::RAPTOR_SETTINGS, 'Raptor Settings', array(&$this, 'validateIndexOptions'));
-    }
-
     public function adminIndex() {
+
+        // Include jQuery UI
+        wp_enqueue_script('jquery-ui-core');
+        wp_enqueue_script('jquery-ui-widget');
+        wp_enqueue_script('jquery-ui-tabs');
+        wp_enqueue_script('jquery-cookie', plugins_url('javascript/jquery.cookie.js', dirname(__FILE__)), 'jquery', '1.0.0');
+
+        // CSS
+        wp_register_style('jquery-ui-smoothness', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css', false, '1.8.16');
+        wp_enqueue_style('jquery-ui-smoothness');
+
         wp_register_style('raptor-admin-styles', plugins_url('css/admin/style.css', dirname(__FILE__)), false, '0.0.3');
         wp_enqueue_style('raptor-admin-styles');
-
-        $options = self::getOptions();
         include RAPTOR_ROOT.'/views/admin/index.php';
-    }
-
-    public function saveOptions() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            update_option(self::RAPTOR_SETTINGS, $_POST);
-        }
-    }
-
-    // Option getters
-    public static function getOptions($key = null) {
-        self::$options = get_option(self::RAPTOR_SETTINGS);
-        if(!is_array(self::$options)) {
-            self::$options = array(
-                self::INDEX_ALLOW_IN_PLACE_EDITING => '1',
-                self::INDEX_RAPTORIZE_QUICKPRESS => '0',
-                self::INDEX_RAPTORIZE_ADMIN_EDITING => '1'
-            );
-            update_option(self::RAPTOR_SETTINGS, self::$options);
-        }
-        if (is_null($key)) {
-            return self::$options;
-        }
-        return self::$options[$key];
-    }
-
-    public static function allowInPlaceEditing() {
-        return self::getOptions(self::INDEX_ALLOW_IN_PLACE_EDITING);
-    }
-
-    public function raptorizeQuickpress() {
-        return self::getOptions(self::INDEX_RAPTORIZE_QUICKPRESS);
-    }
-
-    public function raptorizeAdminEditing() {
-        return self::getOptions(self::INDEX_RAPTORIZE_ADMIN_EDITING);
     }
 }
