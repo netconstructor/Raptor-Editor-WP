@@ -4,7 +4,7 @@ Donate link: N/A
 Tags: content editing, media library
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,10 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 2. WP Raptor is integrated with the standard Wordpress media library.
 
 == Changelog ==
+
+= 1.1.11 =
+* Refactored option management code.
+* Added option to control whether Raptor Editor will attempt to resize an inserted image when editing in place if the image is too large for the post's containing element.
 
 = 1.0.10 =
 * Fixed "Not able to open any bars on dashboard" bug, thanks to popwireless for reporting this (http://wordpress.org/support/topic/plugin-raptor-editor-not-able-to-open-any-bars-on-dashboard).
