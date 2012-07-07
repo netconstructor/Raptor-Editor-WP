@@ -14,6 +14,7 @@ class RaptorInitialiser {
      * @var RaptorSave The raptor save object handles post saving
      */
     public $save = null;
+    public $options = null;
 
     /**
      * Add plugins_loaded action
@@ -27,30 +28,31 @@ class RaptorInitialiser {
      */
     public function initialise() {
 
-        $this->raptor = new Raptor();
+        $this->options = new RaptorOptions();
+        $this->raptor = new Raptor($this->options);
 
         if(RaptorStates::admin()){
 
             // Admin page
-            $this->admin = new RaptorAdmin();
+            $this->admin = new RaptorAdmin($this->options);
             add_action('admin_menu', array(&$this->admin, 'setupMenu'));
-            add_action('admin_init', array(&$this->admin, 'registerSettings'));
+            // add_action('admin_init', array(&$this->admin, 'registerSettings'));
 
             // add_filter('plugin_action_links_wp-raptor', array(&$this->admin, 'pluginLinks') );
 
             // Post editing
-            if (RaptorAdmin::raptorizeQuickpress() || RaptorAdmin::raptorizeAdminEditing()){
+            if ($this->options->raptorizeQuickpress() || $this->options->raptorizeAdminEditing()){
                 add_action('admin_print_scripts', array(&$this->raptor, 'removeNativeEditors'));
-                if (RaptorAdmin::raptorizeQuickpress()) {
+                if ($this->options->raptorizeQuickpress()) {
                     add_action('admin_print_scripts', array(&$this->raptor, 'addAdminQuickPressJs'));
                 }
-                if (RaptorAdmin::raptorizeAdminEditing()) {
+                if ($this->options->raptorizeAdminEditing()) {
                     add_action('admin_print_scripts', array(&$this->raptor, 'addAdminPostJs'));
                 }
             }
         }
 
-        if (RaptorStates::adminViewingPosts() && RaptorAdmin::allowInPlaceEditing()) {
+        if (RaptorStates::adminViewingPosts() && $this->options->allowInPlaceEditing()) {
             add_filter('the_content', array(&$this->raptor, 'encloseEditablePosts'));
             add_action('wp_print_scripts', array(&$this->raptor, 'addInPlacePostJs'));
 
