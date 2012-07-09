@@ -4,7 +4,7 @@ Donate link: N/A
 Tags: content editing, media library
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 1.0.13
+Stable tag: 1.0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,9 @@ The Raptor Editor Wordpress plugin is available using the standard Wordpress plu
 2. WP Raptor is integrated with the standard Wordpress media library.
 
 == Changelog ==
+
+= 1.1.14 =
+* Disabled debugging
 
 = 1.1.12/1.1.13 = 
 * Fixed issue preventing plugin from activating.
