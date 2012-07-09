@@ -3,7 +3,7 @@
 Plugin Name: Raptor Editor
 Plugin URI: http://pagesofinterest.net/projects/wp-raptor/
 Description: Edit your content in style with Raptor Editor, this generation's WYSIWYG editor.
-Version: 1.0.11
+Version: 1.0.13
 Author: Michael Robinson
 Author URI: http://pagesofinterest.net/
 License: http://www.gnu.org/licenses/gpl.html
