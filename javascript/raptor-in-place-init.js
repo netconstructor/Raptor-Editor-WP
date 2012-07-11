@@ -61,7 +61,6 @@
                 id: {
                     attr: 'data-post_id'
                 },
-                postName: raptorInPlace.action,
                 ajax: {
                     url: raptorInPlace.url,
                     type: 'post',
